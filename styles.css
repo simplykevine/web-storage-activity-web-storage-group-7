@@ -1,0 +1,42 @@
+/* Default Light Theme */
+:root {
+    --bg-color: white;
+    --text-color: black;
+}
+
+.dark-mode {
+    --bg-color: #333;
+    --text-color: white;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+}
+
+button {
+    margin: 10px;
+    padding: 10px;
+    border: none;
+    background: #007BFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
