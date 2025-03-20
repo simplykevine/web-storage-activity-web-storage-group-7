@@ -3,39 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Commerce Demo</title>
+    <title>E-commerce Storage Demo</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="utils.js"></script>
-    <script defer src="script.js"></script>
 </head>
-<body>
+<body class="light">
     <div class="container">
-        <h1>🛒 E-Commerce Store</h1>
+        <header>
+            <h1>E-commerce Demo</h1>
+            <div class="header-controls">
+                <button id="themeToggle" class="btn">🌙 Dark Mode</button>
+                <div id="authSection">
+                    <span id="userInfo" class="hidden">
+                        Welcome, <span id="username"></span>!
+                        <button id="logoutBtn" class="btn">Logout</button>
+                    </span>
+                    <form id="loginForm" class="login-form">
+                        <input type="text" id="usernameInput" placeholder="Username" required>
+                        <input type="password" id="passwordInput" placeholder="Password" required>
+                        <input type="hidden" id="csrfToken">
+                        <button type="submit" class="btn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </header>
 
-        <!-- Login Section -->
-        <section id="auth-section">
-            <h2>🔑 User Authentication</h2>
-            <input type="text" id="username" placeholder="Enter your username">
-            <button onclick="login()">Login</button>
-            <button id="logout-btn" onclick="logout()" class="hidden">Logout</button>
-        </section>
+        <main>
+            <section class="products">
+                <h2>Products</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&q=80" alt="Book">
+                        <h3>Classic Book</h3>
+                        <p>$19.99</p>
+                        <button class="btn add-to-cart" data-product="Classic Book" data-price="19.99">Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=300&q=80" alt="Sneakers">
+                        <h3>Sneakers</h3>
+                        <p>$89.99</p>
+                        <button class="btn add-to-cart" data-product="Sneakers" data-price="89.99">Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&q=80" alt="Watch">
+                        <h3>Smart Watch</h3>
+                        <p>$199.99</p>
+                        <button class="btn add-to-cart" data-product="Smart Watch" data-price="199.99">Add to Cart</button>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Theme Toggle -->
-        <section>
-            <h2>🎨 Theme Preferences</h2>
-            <button onclick="toggleTheme()">Toggle Theme</button>
-        </section>
-
-        <!-- Shopping Cart -->
-        <section>
-            <h2>🛍️ Shopping Cart</h2>
-            <button onclick="addToCart('Book', 1)">Add Book</button>
-            <button onclick="addToCart('Laptop', 1)">Add Laptop</button>
-            <div id="cart-items"></div>
-        </section>
-
-        <!-- CSRF Token (Hidden for security) -->
-        <input type="hidden" id="csrfToken">
+            <section class="cart">
+                <h2>Shopping Cart</h2>
+                <div id="cartItems"></div>
+                <div id="cartTotal">Total: $0.00</div>
+            </section>
+        </main>
     </div>
+    <script src="app.js"></script>
 </body>
 </html>
